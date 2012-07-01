@@ -64,9 +64,11 @@ public class RssHandler extends DefaultHandler {
 			// Parse feed properties
 			
 			try {
-				String methodName = "set" + qName.substring(0, 1).toUpperCase() + qName.substring(1);
-				Method method = rssFeed.getClass().getMethod(methodName, String.class);
-				method.invoke(rssFeed, stringBuilder.toString());
+				if (qName != null && qName.length() > 0) {
+				    String methodName = "set" + qName.substring(0, 1).toUpperCase() + qName.substring(1);
+				    Method method = rssFeed.getClass().getMethod(methodName, String.class);
+				    method.invoke(rssFeed, stringBuilder.toString());
+				}
 			} catch (SecurityException e) {
 			} catch (NoSuchMethodException e) {
 			} catch (IllegalArgumentException e) {

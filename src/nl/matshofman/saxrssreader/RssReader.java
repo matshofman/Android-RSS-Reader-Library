@@ -29,12 +29,12 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
 public class RssReader {
-	
-	public static RssFeed read(URL url) throws SAXException, IOException {
-		
+
+    public static RssFeed read(URL url) throws SAXException, IOException {
+
         return read(url.openStream());
 
-	}
+    }
 
     public static RssFeed read(InputStream stream) throws SAXException, IOException {
 

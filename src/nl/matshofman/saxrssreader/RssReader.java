@@ -16,6 +16,7 @@
 
 package nl.matshofman.saxrssreader;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -55,6 +56,10 @@ public class RssReader {
             throw new SAXException();
         }
 
+    }
+
+    public static RssFeed read(String source) throws SAXException, IOException {
+        return read(new ByteArrayInputStream(source.getBytes()));
     }
 
 }
